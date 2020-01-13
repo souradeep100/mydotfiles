@@ -12,3 +12,4 @@ imap <F5> <ESC> :w<CR>:!git add %;git commit -m "commit" %<CR>:q<CR>
 map <F3> :!git blame % > %.blame<CR>:vsplit %.blame<CR>
 map <F4> :!git log --abbrev-commit % > %.log<CR>:vsplit %.log<CR>
 map <F2> :w orig.%<CR>
+map <C-e> :e #<CR>
