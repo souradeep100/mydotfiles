@@ -1,3 +1,11 @@
+[gc]
+	autoDetach = true
 [user]
-	email = souradch@gmail.com
-	name = souradeep
+	email = schakrabarti@microsoft.com
+	name = schakrabarti
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[submodule]
+    recurse = true
