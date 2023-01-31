@@ -3,9 +3,10 @@ MYHOME=$HOME
 BASE=$PWD
 sudo apt update
 sudo apt upgrade
-sudo apt install build-essential python python3 ipython ipython3 python-pip \
- python3-pip vim cscope git tmux zsh curl
-sudo apt install python3-venv
+sudo apt install build-essential python3  ipython3  \
+ python3-pip vim cscope git tmux zsh curl -y
+sudo apt install python3-venv -y
+sudo apt install universal-ctags -y
 cd $MYHOME
 python3 -m venv myvenv
 if [ ! -e ".gitconfig" ]
@@ -20,8 +21,8 @@ if [ ! -e ".tmux.config" ]
 then
     cp -f $BASE/.tmux.config $MYHOME/
 fi
-sudo sh -c "$(curl -esSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-sudo chsh -s /usr/bin/zsh
+sh -c "$(curl -esSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+chsh -s /usr/bin/zsh
 if [ ! -e ".zshrc" ]
 then
     cp -f $BASE/.zshrc $MYHOME/
