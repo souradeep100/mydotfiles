@@ -1,0 +1,31 @@
+### Step 2: Install the Python 3.10 package using apt-get
+
+install Python 3.10 by using the below command :
+
+```
+sudo apt-get install python3.10
+```
+
+### Step 3: Add Python 3.8 & Python 3.10 to update-alternatives
+
+Add both old and new versions of Python to Update Alternatives.
+
+```
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 2
+```
+
+### Step 4: Update Python 3 for point to Python 3.10
+
+By default, Python 3 is pointed to Python 3.8. That means when we run **python3** it will execute as **python3.8** but we want to execute this as **python3.10**.
+
+Type this command to configure **python3**:
+
+```
+sudo update-alternatives --config python3
+```
+
+pip3 install --upgrade setuptools
+
+```python
+sudo apt-get install python3.10-venv
