@@ -64,5 +64,7 @@ sudo apt update
 sudo apt install -y nodejs
 # To understand coc.nvim https://github.com/neoclide/coc.nvim/wiki/Language-servers
 # run the following from vim command prompt , escape then : to get the vim command prompt
+# PlugInstall
+# then restart vim again
 #CocInstall coc-clangd
 #CocCommand clangd.install
