@@ -5,19 +5,14 @@ stty -ixon
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-bash is loaded.
 #OSH_THEME="simple"
-export USERPAT=yqkxlk35c5hj5ilvfttt4w24pugd3gmsszaaorjklwrpnmylplda
+export USERPAT=""
 export AZURE_DEVOPS_EXT_PAT=$USERPAT
 PROMPT_DIRTRIM=2
 alias vim=nvim
 alias vi=nvim
 alias ls='ls --color=auto'
 export PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w\$"
-export USERPAT_MSAZURE=$USERPAT
-export USERPAT_DEVDIV=ifgog24lknqo5q5qm3hxur2abjyktt425gsu7nrerkbo763j2btq
-export USERPAT_CLOUDES=yod6dshlf3yausaytjupdw7egb457mlnkc5furarqummsooukw2q
-export USERPAT_MSFT=5ksfx5jgnb737qe3bbxvbtae3al3xmuk67w3anwjqkvpp4d3tnwa
-export USERPAT_AZURECSISE=fvypet2ruuicv5srdedoez6agvf3ly25ma2a7knlfr27zemm4azq
-export USERPAT_RACKMANAGER=ytcw7bxz7bdfdjlttq63mvkxlaeahdmdfym7m3s5o2kxhmrligda
+
 az devops configure -d project=LSG-linux
 az devops configure -d organization=https://msazure.visualstudio.com
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
