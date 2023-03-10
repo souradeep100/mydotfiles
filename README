@@ -29,3 +29,74 @@ pip3 install --upgrade setuptools
 
 ```python
 sudo apt-get install python3.10-venv
+
+```
+root@DESKTOP-I8ERLK0:/home/souradeep# cat /root/drop_cache.sh
+#!/bin/bash
+# If the cache is greater than 5G, echo 3 > /proc/sys/vm/drop_caches
+
+CACHE=`grep -w "Cached" /proc/meminfo | awk '{ print $2 }'`
+if [ $CACHE -gt 500000 ]
+then
+        sh -c "echo 3 > /proc/sys/vm/drop_caches"
+else
+        exit 0
+fi
+root@DESKTOP-I8ERLK0:/home/souradeep# crontab -l
+# Edit this file to introduce tasks to be run by cron.
+#
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+#
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').
+#
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+#
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+#
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+#
+# For more information see the manual pages of crontab(5) and cron(8)
+#
+# m h  dom mon dow   command
+*/30 * * * * /bin/sh /root/drop_cache.sh
+root@DESKTOP-I8ERLK0:/home/souradeep# cat /etc/wsl.conf
+[user]
+default=souradeep
+generateResolvConf = false
+[boot]
+command="service cron start"
+root@DESKTOP-I8ERLK0:/home/souradeep#
+```
+
+```
+.wslconfig
+
+[wsl2]
+
+# Limits VM memory to use no more than 4 GB, this can be set as whole numbers using GB or MB
+memory=4GB 
+
+# Sets the VM to use two virtual processors
+processors=6
+
+
+# Disable page reporting so WSL retains all allocated memory claimed from Windows and releases none back when free
+pageReporting=true
+
+# Turn off default connection to bind WSL 2 localhost to Windows localhost
+localhostforwarding=true
+
+# Disables nested virtualization
+nestedVirtualization=false
+
+# Turns on output console showing contents of dmesg when opening a WSL 2 distro for debugging
+debugConsole=false
+vmIdleTimeout=60000
