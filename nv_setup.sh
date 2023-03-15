@@ -39,8 +39,8 @@ if has("cscope")
         if filereadable("cscope.out")
             silent cs add cscope.out
         " else add database pointed to by environment
-        elseif $CSCOPE_DB != ""
-            silent cs add $CSCOPE_DB
+        elseif $$CSCOPE_DB != ""
+            silent cs add $$CSCOPE_DB
         endif
 endif
 call plug#begin()
