@@ -7,6 +7,7 @@ sudo apt install build-essential python3  ipython3  \
  python3-pip vim cscope git tmux zsh curl -y
 sudo apt install python3-venv -y
 sudo apt install universal-ctags -y
+sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison -y
 cd $MYHOME
 python3 -m venv myvenv
 if [ ! -e ".gitconfig" ]
