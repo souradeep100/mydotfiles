@@ -22,6 +22,12 @@ if [ ! -e ".tmux.config" ]
 then
     cp -f $BASE/.tmux.config $MYHOME/
 fi
+if [ -d "/datadrive/" ]
+then
+   mkdir /datadrive/vimdir
+else
+   echo "can not create datadrive//vimdir"
+fi
 sh -c "$(curl -esSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 chsh -s /usr/bin/zsh
 if [ ! -e ".zshrc" ]
