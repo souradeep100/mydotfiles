@@ -9,6 +9,9 @@ sudo apt install python3-venv -y
 sudo apt install universal-ctags -y
 sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison -y
 cd $MYHOME
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
 python3 -m venv myvenv
 if [ ! -e ".gitconfig" ]
 then
