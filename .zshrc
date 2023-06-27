@@ -3,9 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/souradeep/.oh-my-zsh"
-alias ls="\ls"
-export UBUNTU="192.168.56.105"
-alias sublime="/mnt/c/Program\ Files/Sublime\ Text\ 3/sublime_text.exe"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
