@@ -1,11 +1,25 @@
-[gc]
-	autoDetach = true
 [user]
-	email = schakrabarti@microsoft.com
-	name = schakrabarti
+        email = ""
+        name = ""
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+        interactive = auto
+        ui = true
+        pager = true
+[branch]
+        autosetuprebase = always
+[difftool]
+        prompt = false
+[pager]
+        branch = false
 [diff]
-	tool = vimdiff
-[merge]
-	tool = vimdiff
-[submodule]
-    recurse = true
+        tool = vimdiff
+[alias]
+    fixes = log -1 --format=fixes
+    gsr = log -1 --format=gsr
+
+[pretty]
+   fixes = Fixes: %h (\"%s\")
+   gsr = %h (\"%s\")
