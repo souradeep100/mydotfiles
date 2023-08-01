@@ -30,19 +30,6 @@ set tabstop=4
 set sw=4
 filetype indent off
 set nocindent
-set relativenumber
-if has("cscope")
-        set csprg=/usr/bin/cscope
-        set csto=0
-        set cst
-        " add any database in current directory
-        if filereadable("cscope.out")
-            silent cs add cscope.out
-        " else add database pointed to by environment
-        elseif $$CSCOPE_DB != ""
-            silent cs add $$CSCOPE_DB
-        endif
-endif
 call plug#begin()
 
 Plug 'https://github.com/preservim/nerdtree' " NerdTree
