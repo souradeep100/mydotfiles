@@ -12,7 +12,10 @@ alias vim=nvim
 alias vi=nvim
 alias ls='ls --color=auto'
 export PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w\$"
-
+if [ "$TERM" == "xterm" ]; then
+    # No it isn't, it's gnome-terminal
+    export TERM=xterm-256color
+fi
 az devops configure -d project=LSG-linux
 az devops configure -d organization=https://msazure.visualstudio.com
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
