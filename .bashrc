@@ -8,8 +8,7 @@ stty -ixon
 export USERPAT=""
 export AZURE_DEVOPS_EXT_PAT=$USERPAT
 PROMPT_DIRTRIM=2
-alias vim=nvim
-alias vi=nvim
+export EDITOR=vim
 alias ls='ls --color=auto'
 
 if [ "$TERM" == "xterm" ]; then
@@ -102,11 +101,7 @@ set -o vi
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='nvim'
- else
-   export EDITOR='nvim'
- fi
+
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
