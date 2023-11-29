@@ -11,13 +11,22 @@ PROMPT_DIRTRIM=2
 alias vim=nvim
 alias vi=nvim
 alias ls='ls --color=auto'
-export PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w\$"
+
 if [ "$TERM" == "xterm" ]; then
     # No it isn't, it's gnome-terminal
     export TERM=xterm-256color
 fi
-az devops configure -d project=LSG-linux
-az devops configure -d organization=https://msazure.visualstudio.com
+# Check for an interactive session
+[ -z "$PS1" ] && return
+
+PS1='\u@\h \W > '
+
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+export PS1='\[\033[0;31m\]\u \[\033[1;36m\]\w $(parse_git_branch)\n\[\033[1;32m\]> \[\033[00m\]'
+
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
