@@ -54,9 +54,9 @@ nmap <silent> gr <Plug>(coc-references)
 EOL
 fi
 
-curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-sudo apt update
-sudo apt install -y nodejs
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+source ~/.bashrc
+nvm install 20
 # To understand coc.nvim https://github.com/neoclide/coc.nvim/wiki/Language-servers
 # run the following from vim command prompt , escape then : to get the vim command prompt
 # PlugInstall
