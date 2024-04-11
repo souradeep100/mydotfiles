@@ -25,14 +25,9 @@
  set bg=dark
  colorscheme hybrid_material
  set lcs=tab:>:,trail:#
- set list
- inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
- inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
- inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>" 
 
-set csto=0  " Use cscope first, then ctags
-        set cst     " Only search cscope
-        set csverb  " Make cs verbose
+
+
 
         nmap `<C-\>`s :cs find s `<C-R>`=expand("`<cword>`")`<CR>``<CR>`
         nmap `<C-\>`g :cs find g `<C-R>`=expand("`<cword>`")`<CR>``<CR>`
