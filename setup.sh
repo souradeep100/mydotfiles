@@ -12,7 +12,7 @@ sudo apt update
 sudo apt install vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison -y
+sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison dwarves cmake -y
 cd $MYHOME
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
@@ -26,16 +26,11 @@ if [ ! -e ".vimrc" ]
 then
     cp -f $BASE/.vimrc $MYHOME/
 fi
-if [ ! -e ".tmux.config" ]
+if [ ! -e ".tmux.conf" ]
 then
-    cp -f $BASE/.tmux.config $MYHOME/
+    cp -f $BASE/.tmux.conf $MYHOME/
 fi
-if [ -d "/datadrive/" ]
-then
-   mkdir /datadrive/vimdir
-else
-   echo "can not create datadrive//vimdir"
-fi
+
 sh -c "$(curl -esSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 chsh -s /usr/bin/zsh
 if [ ! -e ".zshrc" ]
