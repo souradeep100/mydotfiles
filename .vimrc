@@ -19,10 +19,7 @@
  Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
  Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
  Plug 'prabirshrestha/asyncomplete.vim'
- if executable('ctags')
-     Plug 'prabirshrestha/asyncomplete-tags.vim'
-     Plug 'ludovicchabant/vim-gutentags'
- endif
+
  set encoding=UTF-8
  call plug#end()
  set bg=dark
