@@ -14,8 +14,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison dwarves cmake -y
 cd $MYHOME
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
 
 python3 -m venv myvenv
 if [ ! -e ".gitconfig" ]
@@ -37,6 +35,10 @@ if [ ! -e ".zshrc" ]
 then
     cp -f $BASE/.zshrc $MYHOME/
 fi
+
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
 if [ ! -e "$MYHOME/.ssh/id_rsa.pub" ]
 then
     ssh-keygen -t rsa -b 4096
