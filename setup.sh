@@ -13,6 +13,8 @@ sudo apt install vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison dwarves cmake -y
+
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 cd $MYHOME
 
 python3 -m venv myvenv
