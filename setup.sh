@@ -15,7 +15,13 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison dwarves cmake -y
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 cd $MYHOME
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzfa;
+~/.fzf/install
+
+curl -sS https://starship.rs/install.sh | ssh
+
 
 python3 -m venv myvenv
 if [ ! -e ".gitconfig" ]
