@@ -7,6 +7,9 @@ call plug#begin()
  Plug 'https://github.com/vim-utils/vim-man'
  Plug 'neoclide/coc.nvim', {'branch': 'release'}
  Plug 'nordtheme/vim'
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 syntax on
 set hlsearch
@@ -29,8 +32,6 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
