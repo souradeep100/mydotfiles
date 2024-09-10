@@ -37,3 +37,5 @@ function parse_git_branch {
 #echo -ne "\e]1;$HOST\a"
 #export PS1='\[\033[0;31m\]\u \[\033[1;36m\]\w $(parse_git_branch)\n\[\033[1;32m\]> \[\033[00m\]'
 eval "$(starship init bash)"
+
+export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always --line-range=:500 {}'"
