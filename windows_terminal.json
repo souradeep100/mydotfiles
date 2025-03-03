@@ -1,0 +1,21 @@
+{
+    "name": "Pastel High Contrast",
+    "background": "#2E2E2E",
+    "foreground": "#F8F8F2",
+    "black": "#3A3A3A",
+    "red": "#FF6B6B",
+    "green": "#A8E6CF",
+    "yellow": "#FFD97D",
+    "blue": "#80B3FF",
+    "purple": "#D4A5A5",
+    "cyan": "#7EE8FA",
+    "white": "#F8F8F2",
+    "brightBlack": "#555555",
+    "brightRed": "#FF8787",
+    "brightGreen": "#C3FAD8",
+    "brightYellow": "#FFEB99",
+    "brightBlue": "#A7C7FF",
+    "brightPurple": "#E1B8B8",
+    "brightCyan": "#A8E9FC",
+    "brightWhite": "#FFFFFF"
+}
