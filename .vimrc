@@ -15,7 +15,8 @@ syntax on
 set hlsearch
 set bg=dark
 colorscheme nord
-
+set listchars=tab:\|_,trail:#,precedes:#,extends:#
+set list
 set splitright
 set number
 inoremap <silent><expr> <TAB>
