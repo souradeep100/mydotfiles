@@ -20,13 +20,8 @@ set cursorline
 set number
 set listchars=tab:\|_,trail:#,precedes:#,extends:#
 if has('cscope')
-    set cscopeprg=gtags-cscope
     set cscopetag
     set cscopeverbose
-|___if filereadable("GTAGS")
-|___|___cs add GTAGS
-|___endif
-
 
     " Define key mappings for cscope-like functions
     " Find symbol
