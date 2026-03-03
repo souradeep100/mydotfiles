@@ -44,9 +44,9 @@ config.ssh_domains = {
     name = 'dev_arm64',
     -- The hostname or address to connect to. Will be used to match settings
     -- from your ssh config file
-    remote_address = '52.156.216.25',
+    remote_address = '',
     -- The username to use on the remote host
-    username = 'schakrabarti',
+    username = '',
     local_echo_threshold_ms = 10000, 
   },
 }
