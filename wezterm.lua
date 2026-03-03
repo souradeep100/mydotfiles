@@ -1,60 +1,54 @@
--- Pull in the wezterm API
 local wezterm = require 'wezterm'
 
--- This will hold the configuration.
-local config = wezterm.config_builder()
-
--- This is where you actually apply your config choices
-config.color_scheme = 'DanQing (base16)'
--- For example, changing the color scheme:
-config.font = wezterm.font ('CascadiaCodeNF-SemiLight')
-config.font_size = 14
-
-config.leader = { key = ' ', mods = 'CTRL', timeout_milliseconds = 1000 }
-config.keys = {
-        -- Toggle full screen
-        {key="F11", mods="NONE", action=wezterm.action.ToggleFullScreen},
-
-        -- Increase font size
-        {key="+", mods="CTRL", action=wezterm.action.IncreaseFontSize},
-
-        -- Decrease font size
-        {key="-", mods="CTRL", action=wezterm.action.DecreaseFontSize},
-
-        -- Reset font size
-        {
-                key = '|',
-                mods = 'LEADER|SHIFT',
-                action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
-        },
-        {
-                key = '-',
-                mods = 'LEADER',
-                action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
-        },
-        {key="0", mods="CTRL", action=wezterm.action.ResetFontSize},
-        {key="q", mods="CTRL", action=wezterm.action.CloseCurrentPane { confirm = true }},
-        {key="w", mods="CTRL", action=wezterm.action.CloseCurrentTab { confirm = true }},
-        {
-                key = 'LeftArrow',
-                mods = 'LEADER',
-                action = wezterm.action.AdjustPaneSize { 'Left', 5 },
-        },
-        {
-                key = 'DownArrow',
-                mods = 'LEADER',
-                action = wezterm.action.AdjustPaneSize { 'Down', 5 },
-        },
-        { key = 'UpArrow', mods = 'LEADER', action = wezterm.action.AdjustPaneSize { 'Up', 5 } },
-        {
-                key = 'RightArrow',
-                mods = 'LEADER',
-                action = wezterm.action.AdjustPaneSize { 'Right', 5 },
-        },
-        {
-                key = 'z',
-                mods = 'LEADER',
-                action = wezterm.action.TogglePaneZoomState,
-        }
+local config = {
+  font = wezterm.font("Cascadia Code"),
+  font_size = 12,
+  color_scheme = "Catppuccin Mocha", -- Optional
+  term = "wezterm",
 }
+config.default_prog = { 'powershell.exe', '-NoLogo' }
+config.keys = {
+  -- Split horizontal
+  {
+    key = 'h',
+    mods = 'LEADER',
+    action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+  },
+  -- Split vertical
+  {
+    key = 'v',
+    mods = 'LEADER',
+    action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
+  },
+  -- Toggle Fullscreen
+  {
+    key = 'Enter',
+    mods = 'ALT',
+    action = wezterm.action.ToggleFullScreen,
+  },
+  -- Disable default CMD-m (Hide)
+  {
+    key = 'm',
+    mods = 'CMD',
+    action = wezterm.action.DisableDefaultAssignment,
+  },
+}
+config.scrollback_lines = 999999
+
+-- Define a Leader Key
+config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
+
+config.ssh_domains = {
+  {
+    -- This name identifies the domain
+    name = 'dev_arm64',
+    -- The hostname or address to connect to. Will be used to match settings
+    -- from your ssh config file
+    remote_address = '52.156.216.25',
+    -- The username to use on the remote host
+    username = 'schakrabarti',
+    local_echo_threshold_ms = 10000, 
+  },
+}
+
 return config
