@@ -25,3 +25,11 @@ windows terminal colorscheme
             "white": "#C9C9C9",
             "yellow": "#EDD010"
  }
+
+
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# Use 'ripgrep' for the fzf CTRL-R command (optional)
+# This requires further custom scripting, but basic 'rg' integration is:
+alias frg='rg --line-number --no-heading --color=always --smart-case "" | fzf --ansi'
