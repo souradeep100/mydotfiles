@@ -13,7 +13,8 @@ source "$HOME/.cargo/env"
 echo "Installing CLI tools via Cargo..."
 cargo install ripgrep   # Provides 'rg'
 cargo install fd-find   # Provides 'fd'
-cargo install fzf       # Provides 'fzf'
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 
 # 4. Verify installations
 echo "------------------------------"
