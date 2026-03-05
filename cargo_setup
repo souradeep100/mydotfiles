@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# 1. Install Rust and Cargo via rustup
+# The -s -- -y flags perform a default unattended installation
+echo "Installing Rust and Cargo..."
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
+# 2. Configure the current shell session
+# This ensures 'cargo' is available immediately without restarting the terminal
+source "$HOME/.cargo/env"
+
+# 3. Install ripgrep, fd, and fzf via Cargo
+echo "Installing CLI tools via Cargo..."
+cargo install ripgrep   # Provides 'rg'
+cargo install fd-find   # Provides 'fd'
+cargo install fzf       # Provides 'fzf'
+
+# 4. Verify installations
+echo "------------------------------"
+echo "Installation complete!"
+cargo --version
+rg --version
+fd --version
+fzf --version
