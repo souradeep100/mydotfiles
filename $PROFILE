@@ -1,0 +1,29 @@
+#notepad $PROFILE
+function ssh-copy-id {
+    param (
+        [Parameter(Mandatory=$true, Position=0)]
+        [string]$Target  # Expects "user@1.2.3.4"
+    )
+
+    $PubkeyPath = "$env:USERPROFILE\.ssh\id_rsa.pub"
+
+    # Check if the public key exists
+    if (-not (Test-Path $PubkeyPath)) {
+        Write-Error "Public key not found at $PubkeyPath. Run 'ssh-keygen' first."
+        return
+    }
+
+    # Validate format and split the string
+    if ($Target -match "(.+)@(.+)") {
+        Write-Host "Attempting to copy key to $Target..." -ForegroundColor Cyan
+        
+        # The actual command execution
+        Get-Content $PubkeyPath | ssh $Target "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 700 ~/.ssh && chmod 600 ~/.ssh/authorized_keys"
+        
+        if ($LASTEXITCODE -eq 0) {
+            Write-Host "Success! Try logging in with 'ssh $Target'" -ForegroundColor Green
+        }
+    } else {
+        Write-Error "Invalid format. Please use 'user@ip-address' (e.g., schakrabarti@52.169.220.56)"
+    }
+}
