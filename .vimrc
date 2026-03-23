@@ -19,25 +19,26 @@ set splitright
 set cursorline
 set number
 set listchars=tab:\|_,trail:#,precedes:#,extends:#
-if has('cscope')
-    set cscopetag
-    set cscopeverbose
-
-    " Define key mappings for cscope-like functions
-    " Find symbol
-    map <C-@>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-    " Find global definition
-    map <C-@>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-    " Find calls/references
-    map <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-    " Find functions called by
-    map <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
-    " Find files including the file under cursor
-    map <C-@>i :cs find i <C-R>=expand("<cfile>")<CR><CR>
-    " Find definition (same as <C-]>)
-    map <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-    " Find files matching pattern
-    map <C-@>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-    " Find text string
-    map <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+set cscopeverbose
+" Find symbol
+set cscopequickfix=s-,g-,c-,d-,t-,e-,f-,i-
+"if filereadable("cscope.out")
+"           cs add cscope.out
+"endif
+augroup CscopeQuickfixAutoOpen
+    autocmd!
+    autocmd QuickFixCmdPost [^l]* copen 10
+augroup END
+if filereadable("cscope.out")
+    cs add cscope.out
 endif
+nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>a :cs find a <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>S :cs find t struct <C-R>=expand("<cword>")<CR> {<CR>
