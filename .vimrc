@@ -14,7 +14,7 @@ set number
 set cc=100
 filetype plugin indent on
 set listchars=tab:\|_,trail:#,precedes:#,extends:#
-
+set pastetoggle=<f5>
 function! SetLinuxKernelPath()
     " 1. Find the potential root
     let l:kernel_root = finddir('.git/..', expand('%:p:h') . ';')
