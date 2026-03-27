@@ -14,6 +14,37 @@ set number
 set cc=100
 filetype plugin indent on
 set listchars=tab:\|_,trail:#,precedes:#,extends:#
+
+function! SetLinuxKernelPath()
+    " 1. Find the potential root
+    let l:kernel_root = finddir('.git/..', expand('%:p:h') . ';')
+
+    " 2. Verify it's the Linux Kernel
+    if l:kernel_root != '' && filereadable(l:kernel_root . '/MAINTAINERS')
+        " Base includes
+        execute 'setlocal path+=' . l:kernel_root . '/include'
+        execute 'setlocal path+=' . l:kernel_root . '/include/uapi'
+
+        " 3. Add ARM64 headers if the directory exists
+        let l:arm64_path = l:kernel_root . '/arch/arm64/include'
+        if isdirectory(l:arm64_path)
+            execute 'setlocal path+=' . l:arm64_path
+            execute 'setlocal path+=' . l:arm64_path . '/uapi'
+        endif
+
+        " 4. Add x86 headers if the directory exists (for cross-dev)
+        let l:x86_path = l:kernel_root . '/arch/x86/include'
+        if isdirectory(l:x86_path)
+            execute 'setlocal path+=' . l:x86_path
+            execute 'setlocal path+=' . l:x86_path . '/uapi'
+        endif
+
+        " Set suffixes to help 'gf' find files without extensions
+        setlocal suffixesadd+=.h,.c
+    endif
+endfunction
+nnoremap <leader>sp :call SetLinuxKernelPath()<CR>
+
 set cscopeverbose
 " Find symbol
 set cscopequickfix=s-,g-,c-,d-,t-,e-,f-,i-
