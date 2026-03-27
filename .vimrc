@@ -43,7 +43,8 @@ function! SetLinuxKernelPath()
         setlocal suffixesadd+=.h,.c
     endif
 endfunction
-nnoremap <leader>sp :call SetLinuxKernelPath()<CR>
+
+nnoremap <leader>sp <Cmd>call SetLinuxKernelPath()<CR>
 
 set cscopeverbose
 " Find symbol
