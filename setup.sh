@@ -14,12 +14,16 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison dwarves cmake -y
 
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+#git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 cd $MYHOME
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf;
 ~/.fzf/install
 
+curl https://sh.rustup.rs -sSf | sh
+source "$HOME/.cargo/env"
+cargo install ripgrep
+cargo install fd-find
 curl -sS https://starship.rs/install.sh | ssh
 
 if [ ! -e ".vimrc" ]
