@@ -3,11 +3,7 @@ call plug#begin()
  Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
  Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
- Plug 'https://github.com/vim-utils/vim-man'
- Plug 'nordtheme/vim'
-
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+ Plug 'junegunn/fzf.vim'
 call plug#end()
 syntax on
 set hlsearch
