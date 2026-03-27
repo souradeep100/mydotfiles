@@ -7,13 +7,12 @@ call plug#begin()
 call plug#end()
 syntax on
 set hlsearch
-set sw=4
-colorscheme lucius
-set tabstop=4
-set bg=dark
+colorscheme PaperColor
 set splitright
 set cursorline
 set number
+set cc=100
+filetype plugin indent on
 set listchars=tab:\|_,trail:#,precedes:#,extends:#
 set cscopeverbose
 " Find symbol
